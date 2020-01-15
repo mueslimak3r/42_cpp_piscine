@@ -16,7 +16,8 @@ void        ZombieEvent::setZombieType(int type)
         std::cout << "enter new type: ";
         std::getline(std::cin, input);
         temp = new std::string[types_size + 1];
-        memcpy( temp, types, types_size * sizeof(std::string*) );
+        for (int i = 0; i < types_size; i++)
+            temp[i] = types[i];
         temp[types_size] = input;
         chosen_type = types_size;
         types_size++;
@@ -32,7 +33,7 @@ std::string ZombieEvent::get_type(int type)
     if (type < types_size && type >= 0)
         return (types[type]);
     else
-        return ("bad type");
+        return ("bad type: " + std::to_string(type));
 }
 
 Zombie *ZombieEvent::newZombie(std::string name)
@@ -49,8 +50,9 @@ Zombie *ZombieEvent::randomChump()
     Zombie  *new_zombie;
 
     int curr_type = chosen_type;
-    chosen_type = rand() % types_size;
-    new_zombie = newZombie("random zombie" + std::to_string(rand()));
+    std::srand(std::time(nullptr));
+    chosen_type = std::rand() % types_size;
+    new_zombie = newZombie("random zombie " + std::to_string(std::rand()));
     chosen_type = curr_type;
     return (new_zombie);
 }

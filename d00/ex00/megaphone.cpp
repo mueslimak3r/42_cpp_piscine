@@ -1,5 +1,6 @@
 #include<iostream>
 #include <cctype>
+#include <cstring>
 
 int main(int argc, char **argv)
 {
@@ -7,7 +8,7 @@ int main(int argc, char **argv)
     {
         for (int i = 1; i < argc; i++)
         {
-            for (size_t x = 0; x < strlen(argv[i]); x++)
+            for (size_t x = 0; x < std::strlen(argv[i]); x++)
                 std::cout << (char)toupper(argv[i][x]);
         }
     }

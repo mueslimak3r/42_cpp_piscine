@@ -1,8 +1,9 @@
 #ifndef ZOMBIEEVENT_HPP
 # define ZOMBIEEVENT_HPP
 
-#include <iostream>
 #include "Zombie.hpp"
+#include <ctime>
+#include <iostream>
 
 class ZombieEvent
 {
