@@ -1,20 +1,18 @@
+NAME=megaphone
 CXX=g++
 RM=rm -f
-CPPFLAGS=-g -Wall -Wextra -Werror
-LDFLAGS=-g
+CPPFLAGS=-Wall -Wextra -Werror
+LDFLAGS=
 LDLIBS=
 
 SRCS=megaphone.cpp
 OBJS=$(subst .cpp,.o,$(SRCS))
 
-all: tool
-
-tool: $(OBJS)
-	$(CXX) $(LDFLAGS) $(OBJS) $(LDLIBS) -o megaphone
-
-#tool.o: tool.cc support.hh
-
-#support.o: support.hh support.cc
+all: $(OBJS)
+	$(CXX) $(LDFLAGS) $(OBJS) $(LDLIBS) -o $(NAME)
 
 clean:
 	$(RM) $(OBJS)
+
+fclean: clean
+	$(RM) $(NAME)

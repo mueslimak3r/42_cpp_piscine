@@ -1,16 +1,14 @@
 NAME=phonebook
 CXX=clang++
 RM=rm -f
-CPPFLAGS=-g -Wall -Wextra -Werror
-LDFLAGS=-g
+CPPFLAGS=-Wall -Wextra -Werror
+LDFLAGS=
 LDLIBS=
 
 SRCS=phonebook.cpp C_contact.cpp C_contacts.cpp
 OBJS=$(subst .cpp,.o,$(SRCS))
 
-all: tool
-
-tool: $(OBJS)
+all: $(OBJS)
 	$(CXX) $(LDFLAGS) $(OBJS) $(LDLIBS) -o $(NAME)
 
 clean:
