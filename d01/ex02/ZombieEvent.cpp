@@ -1,10 +1,4 @@
 #include "ZombieEvent.hpp"
-/*
-Zombie  *newZombie(std::string name)
-{
-
-}
-*/
 
 void        ZombieEvent::setZombieType(int type)
 {

@@ -4,7 +4,7 @@
 void ponyOnTheHeap()
 {
     std::cout << "pony on the heap" << std::endl;
-    Pony *pony = new Pony(10);
+    Pony *pony = new Pony(30);
     
     pony->check_health();
     pony->exercise(20);
