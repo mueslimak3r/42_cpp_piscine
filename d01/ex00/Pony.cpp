@@ -17,6 +17,16 @@ void give_water (void);
 */
 #include "Pony.hpp"
 
+Pony::Pony (int)
+{
+    age = 10;
+    height = 10;
+    weight = 10;
+    food = 10;
+    water = 10;
+    alive = 1;
+}
+
 void Pony::check_health (void)
 {
     if (!alive)

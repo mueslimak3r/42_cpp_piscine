@@ -3,7 +3,7 @@
 void ponyOnTheHeap()
 {
     std::cout << "pony on the heap" << std::endl;
-    Pony *pony = new Pony();
+    Pony *pony = new Pony(10);
     
     pony->check_health();
     pony->exercise(20);
