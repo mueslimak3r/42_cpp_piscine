@@ -12,21 +12,31 @@ void FragTrap::meleeAttack(std::string const & target)
 
 void FragTrap::takeDamage(unsigned int amount)
 {
-    std::cout << "FR4G-TP <" << name << "> took <" << std::to_string(amount - armor_damage_reduction) << "> points of damage !\n";
+    int dealt_damage;
+
+    if (hit_points - amount + armor_damage_reduction <= 0)
+        dealt_damage = hit_points;
+    else
+        dealt_damage = amount;
+    hit_points -= dealt_damage;
+    std::cout << "FR4G-TP <" << name << "> took <" << dealt_damage << "> points of damage !\n";
 }
 
 void FragTrap::beRepaired(unsigned int amount)
 {
-    if (hit_points )
-    std::cout << "FR4G-TP <" << name << "> was repaired <" << std::to_string(amount) << "> points, hit_points at <" << hit_points << ">!\n";
+    int healed_amount;
+
+    if (hit_points - amount <= 0)
+        healed_amount = hit_points;
+    else
+        healed_amount = amount;
+    hit_points -= healed_amount;   
+    std::cout << "FR4G-TP <" << name << "> was repaired <" << std::to_string(healed_amount) << "> points, hit_points at <" << hit_points << ">!\n";
 }
 
 void FragTrap::vaulthunter_dot_exe(std::string const & target)
 {
-    if (&target)
-    {
-        ;
-    }
+    ;
 }
 
 
@@ -74,7 +84,7 @@ FragTrap::FragTrap(std::string const & new_name)
     melee_attack_damage = 30;
     ranged_attack_damage = 20;
     armor_damage_reduction = 5;
-    name = "new robot";
+    name = new_name;
 }
 
 FragTrap::FragTrap(const FragTrap &copy)
